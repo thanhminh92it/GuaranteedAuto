@@ -70,4 +70,80 @@ $(document).ready(function () {
 
     );
 
+    $(".accounts").validate(
+        {
+            rules: {
+                username: "required",
+                password: {
+                    required: true,
+                    minlength: 6,
+                    maxlength: 20
+                },
+                reppassword: {
+                    equalTo: "#password"
+                },
+                email: {
+                    required: true,
+                    email: true
+                }
+            },
+            errorClass: "error",
+            highlight: function (label) {
+                $(label).closest('.form-group').removeClass('has-success').addClass('has-error');
+            },
+            messages: {
+                username: "Hãy điền tên đăng nhập.",
+                password: {
+                    required: "Hãy điền mật khẩu",
+                    minlength: "Mật khẩu ít nhất 6 ký tự",
+                    maxlength: "Mật khẩu không được quá 20 ký tự"
+                },
+                reppassword: {
+                    equalTo: "Mật khẩu xác nhận không chính xác"
+                },
+                email: {
+                    required: "Hãy nhập 1 địa chỉ email hợp lệ",
+                    email:"Địa chỉ email không hợp lệ"
+                }
+            },
+            success: function (label) {
+                label
+                    .text('OK!').addClass('valid')
+                    .closest('.form-group').addClass('has-success');
+
+            }
+        }
+    );
+
+    $(".singin").validate(
+        {
+            rules: {
+                username: "required",
+                password: {
+                    required: true,
+                    minlength: 6,
+                    maxlength: 20
+                }
+            },
+            errorClass: "error",
+            highlight: function (label) {
+                $(label).closest('.form-group').removeClass('has-success').addClass('has-error');
+            },
+            messages: {
+                username: "Hãy điền tên đăng nhập.",
+                password: {
+                    required: "Hãy điền mật khẩu",
+                    minlength: "Mật khẩu ít nhất 6 ký tự",
+                    maxlength: "Mật khẩu không được quá 20 ký tự"
+                }
+            },
+            success: function (label) {
+                label
+                    .text('OK!').addClass('valid')
+                    .closest('.form-group').addClass('has-success');
+
+            }
+        }
+    );
+
 });

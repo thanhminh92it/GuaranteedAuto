@@ -60,7 +60,7 @@
 </head>
 <body>
 <div class="well well-sm" style="text-align:center">
-    <h3> Bảo Hành Ô tô</h3>
+    <h3> Bảo Hành Máy tính</h3>
 </div>
 <div class="container col-sm-10">
     <legend>Cập nhật thông tin bảo hành</legend>
@@ -148,8 +148,7 @@
             <div class="controls">
                 <div class="input-group">
                     <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
-                    <textarea name="msg" class="form-control " rows="4" cols="78"
-                              placeholder="Enter your message here" value='<?php echo $BaoHanh['MoTaLoi'] ?>'></textarea>
+                    <textarea name="msg" class="form-control " rows="4" cols="78" placeholder="Mô tả lỗi"><?php echo $BaoHanh['MoTaLoi'] ?></textarea>
                 </div>
             </div>
         </div>

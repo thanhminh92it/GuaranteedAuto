@@ -1,87 +1,67 @@
-<!doctype html>
+<?php
+    session_start();
+    $_SESSION['username'] = null;
+?>
 <html>
 <head>
     <meta charset="utf-8" />
-    <title>ĐĂNG NHẬP TÀI KHOẢN</title>
-    <link href="css/bootstrap.css" type="text/css" rel="stylesheet" />
-    <link href="css/login.css" type="text/css" rel="stylesheet" />
-    <script src="js/jquery.js" type="text/javascript" language="javascript"></script>
-    <script type="text/javascript">
-        //  Developed by Amit Sarwara
-        //  Visit http://www.tricktodesign.com for this script and more.
-        $(document).ready(function()
-        {
-            $("#login_form").submit(function()
-            {
-                //remove all the class add the messagebox classes and start fading
-                $("#msgbox").removeClass().addClass('messagebox').text('Validating....').fadeIn(1000);
-                //check the username exists or not from ajax
-                $.post("ajax_login.php",{ user_name:$('#username').val(),password:$('#password').val(),rand:Math.random() } ,function(data)
-                {
-                    if(data=='yes') //if correct login detail
-                    {
-                        $("#msgbox").fadeTo(200,0.1,function()  //start fading the messagebox
-                        {
-                            //add message and change the class of the box and start fading
-                            $(this).html('Logging in.....').addClass('messageboxok').fadeTo(900,1,
-                                function()
-                                {
-                                    //redirect to secure page
-                                    document.location='logsuccess.html';
-                                });
-
-                        });
-                    }
-                    else
-                    {
-                        $("#msgbox").fadeTo(200,0.1,function() //start fading the messagebox
-                        {
-                            //add message and change the class of the box and start fading
-                            $(this).html('Your login detail sucks...').addClass('messageboxerror').fadeTo(900,1);
-                        });
-                    }
-
-                });
-                return false; //not to post the  form physically
-            });
-            //now call the ajax also focus move from
-            $("#password").blur(function()
-            {
-                $("#login_form").trigger('submit');
-            });
-        });
-    </script>
-
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.js"></script>
 </head>
 <body>
-<div class="container-fluid">
-    <div class="row-fluid">
-        <span id="msgbox" style="display:none"></span>
-        <h2>Đăng nhập tài khoản</h2>
-        <form class="form-horizontal" method="post" action="" id="login_form" style="border:1px solid #eee;padding-left: 200px;padding-top:50px;margin-top:15px">
-            <div class="control-group">
-                <label class="control-label" for="username">Username</label>
-                <div class="controls">
-                    <input type="text" id="username" placeholder="Username">
-                </div>
-            </div>
-            <div class="control-group">
-                <label class="control-label" for="password">Password</label>
-                <div class="controls">
-                    <input type="password" id="password" placeholder="Password">
-                </div>
-            </div>
-            <div class="control-group">
-                <div class="controls">
-                    <label class="checkbox">
-                        <input type="checkbox"> Remember me
-                    </label>
-                    <input name="Submit" type="submit" id="submit" value="Login" class="btn btn-success"/>
-                    <input type="reset" name="Reset" value="Reset" class="btn"/>
-                </div>
-            </div>
-        </form>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6 col-md-4 col-md-offset-4">
+            <h1 class="text-center login-title">Đăng nhập với quyền quản trị</h1>
+            <div class="account-wall">
+                <img class="profile-img" src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=120"
+                     alt="">
+                <form class="form-signin" method="post" action="login.php">
+                    <?php
+                    include "database.php";
+                    if(isset($_POST['btn']))
+                    {
+                        $username = $_POST['username'];
+                        $password = $_POST['password'];
+                        $password = md5($password);
+                        $sql = "select * from account where username='".$username."' AND password ='".$password."'";
+                        $list = $pdo -> query($sql);
+                        $count = 0;
+                        foreach($list as $a)
+                        {
+                            $count = $count + 1;
+                        }
+                        if($count == 0)
+                        {
 
+                            echo "<div class=\"alert alert-danger alert-error\">
+                                    <a href=\"#\" class=\"close\" data-dismiss=\"alert\">&times;</a>
+                                    <strong>Lỗi!</strong> Tài khoản hoặc mật khẩu không chính xác.
+                                </div>";
+                        }
+                        else
+                        {
+                            session_start();
+                            $_SESSION['username'] = $username;
+                            header("location:ManagerUser.php");
+                        }
+                    }
+                    ?>
+                    <input type="text" class="form-control" name="username" placeholder="Tài khoản" required autofocus>
+                    <input type="password" class="form-control" name="password" placeholder="Mật khẩu" required>
+                    <button class="btn btn-lg btn-primary btn-block" name="btn" type="submit">
+                        Đăng nhập</button>
+                    <label class="checkbox pull-left">
+                        <input type="checkbox" value="remember-me">
+                        Nhớ tài khoản của tôi
+                    </label>
+                    <a href="#" class="pull-right need-help">Quên mật khẩu</a><span class="clearfix"></span>
+                </form>
+            </div>
+            <a href="signup.php" class="text-center new-account">Thêm tài khoản</a>
+        </div>
     </div>
 </div>
 </body>

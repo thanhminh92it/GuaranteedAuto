@@ -1,7 +1,10 @@
 <?php
 include 'database.php';
+    session_start();
+  if($_SESSION['username']  == null)
+        header("location:login.php");
     //show du lieu
-    $sql="select * from guaranteed;";
+    $sql="select * from guaranteed";
     $list = $pdo -> query($sql);
 ?>
 <!DOCTYPE html>
@@ -15,7 +18,7 @@ include 'database.php';
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Bootstrap Admin Theme</title>
+    <title>Quản lý bảo hành</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -56,7 +59,7 @@ include 'database.php';
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
     </button>
-    <a class="navbar-brand" href="index.html">CrazyFrog</a>
+    <a class="navbar-brand" href="index.html">Thái Vinh Computer</a>
 </div>
 <!-- /.navbar-header -->
 
@@ -66,10 +69,8 @@ include 'database.php';
             <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
         </a>
         <ul class="dropdown-menu dropdown-user">
-            <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a></li>
-            <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a></li>
-            <li class="divider"></li>
-            <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a></li>
+            <li><a href="#"><i class="fa fa-user fa-fw"></i><?php echo $_SESSION['username']; ?></a></li>
+            <li><a href="login.php"><i class="fa fa-sign-out fa-fw"></i>Thoát</a></li>
         </ul>
     </li>
 </ul>

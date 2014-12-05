@@ -20,7 +20,7 @@ if(isset($_POST['btn1'])){
     $newformat = date('Y-m-d',$time1);
 
     $sql = "insert into guaranteed(Ten_KH,Email_KH,DienThoai_KH,Ma_KH,Ten_SP,Seri_SP,MaKho_SP,MoTaLoi,NgayNhan_SP,NgayTra_SP,NhanVienSua,TinhTrang,GhiChu) value('$name', '$email', '$SDT', '$MaKH', '$TenSP','$seri','$KhoSP','$MoTaLoi',FROM_UNIXTIME($time),FROM_UNIXTIME($time1),'$TenNV','$TinhTrang','$GhiChu')";
-    $pdo -> exec($sql) or die("Không thêm được vào CSDL");
+    $pdo -> query($sql) or die("Khong them dc");
     header("location:ManagerGuaranteed.php");
 }
 ?>
