@@ -59,7 +59,7 @@ include 'database.php';
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
     </button>
-    <a class="navbar-brand" href="index.html">Thái Vinh Computer</a>
+    <a class="navbar-brand" href="#">Thái Vinh Computer</a>
 </div>
 <!-- /.navbar-header -->
 
@@ -109,7 +109,7 @@ include 'database.php';
         <span class="glyphicon glyphicon-list"></span>   Danh sách bảo hành
         <div class="pull-right">
             <div class="btn-group">
-                <a href="/GuaranteedAuto/add.php" title="Thêm mới" class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-plus"></span></a>
+                <a href="add.php" title="Thêm mới" class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-plus"></span></a>
             </div>
         </div>
     </div>

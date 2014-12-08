@@ -86,3 +86,35 @@ color: green !important;}
     display: block;
     margin-top: 10px;
 }
+
+.table-baocao tr td,th{
+    text-align: center;
+}
+
+.title-nhapkho{
+    font-size: 30px;
+    text-align: center;
+    font-family: 'Times', 'Times New Roman', 'serif';
+}
+
+.table-thongtin tr th{
+    width: 80%;
+    padding-left: 10%;
+    text-align: left;
+    font-size: 14px;
+    font-family: 'Times', 'Times New Roman', 'serif';
+    text-align: left;
+}
+
+.table-thongtin tr td{
+    text-align: center;
+}
+
+.mycontainer{
+    text-align: center;
+    width: 100%;
+}
+
+.table-chitiet tr td{
+    text-align: center;
+}

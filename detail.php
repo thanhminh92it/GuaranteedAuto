@@ -48,7 +48,7 @@ $result1 = $date1->format('d/m/Y');
         </div>
 
         <div class="form-group">
-           Địa chỉ Email: <label class="control-label"><?php echo $BaoHanh['Email'] ?></label>
+            Địa chỉ Email: <label class="control-label"><?php echo $BaoHanh['Email'] ?></label>
         </div>
 
         <div class="form-group ">
@@ -75,7 +75,7 @@ $result1 = $date1->format('d/m/Y');
         </div>
 
         <div class="form-group ">
-           Tình trạng: <label class="control-label"><?php echo $BaoHanh['TinhTrang'] ?></label>
+            Tình trạng: <label class="control-label"><?php echo $BaoHanh['TinhTrang'] ?></label>
         </div>
         <div class="controls pull-left">
             <a href="index.php" class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-home"></span></a>

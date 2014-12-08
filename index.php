@@ -15,12 +15,12 @@
             {
                 var faq_search_input = $(this).val();   		// Lấy giá trị search của người dùng
                 var dataString = 'keyword='+ faq_search_input;	// Lấy giá trị làm tham số đầu vào cho file ajax-search.php
-                if(faq_search_input.length <= 3)
+                if(faq_search_input.length < 2)
                 {
                     $('#searchresultdata').hide();
                     $('span#faq_category_title').html(faq_search_input);
                 }
-                if(faq_search_input.length>3)					// Kiểm tra giá trị người nhập có > 3 ký tự hay ko
+                if(faq_search_input.length>=2)					// Kiểm tra giá trị người nhập có > 3 ký tự hay ko
                 {
                     $.ajax({
                         type: "GET",      						// Phương thức gọi là GET

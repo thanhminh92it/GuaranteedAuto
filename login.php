@@ -60,7 +60,6 @@
                     <a href="#" class="pull-right need-help">Quên mật khẩu</a><span class="clearfix"></span>
                 </form>
             </div>
-            <a href="signup.php" class="text-center new-account">Thêm tài khoản</a>
         </div>
     </div>
 </div>

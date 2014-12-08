@@ -78,7 +78,7 @@ $list = $pdo -> query($sql);
             <div class="sidebar-nav navbar-collapse">
                 <ul class="nav" id="side-menu">
                     <li>
-                        <a href="ManagerGuaranteed.php"><i class="fa fa-table fa-fw"></i> Danh sách tài khoản</a>
+                        <a href="ManagerGuaranteed.php"><i class="fa fa-table fa-fw"></i> Danh sách bảo hành</a>
                     </li>
                     <li>
                         <a href="ManagerUser.php" class="active"><i class="fa fa-edit fa-fw"></i> Quản lý tài khoản</a>
