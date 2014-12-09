@@ -1,35 +1,9 @@
 <?php
 include 'database.php';
 session_start();
-if ($_SESSION['username'] == null)
-    header("location:login.php");
+if ($_SESSION['username'] == null) header("location:login.php");
 //show du lieu
-$sql = "select * from guaranteed";
-$list = $pdo->query($sql);
-if (isset($_POST['btn1'])) {
-    $name = $_POST['name'];
-    $SDT = $_POST['SDT'];
-    $email = $_POST['email'];
-    $MaKH = $_POST['MaKH'];
-    $TenSP = $_POST['TenSP'];
-    $seri = $_POST['seri'];
-    $KhoSP = $_POST['KhoSP'];
-    $MoTaLoi = $_POST['msg'];
-    $NgayNhan = $_POST['NgayNhan'];
-    $NgayTra = $_POST['NgayTra'];
-    $TenNV = $_POST['TenNV'];
-    $TinhTrang = $_POST['TinhTrang'];
-    $GhiChu = $_POST['GhiChu'];
-    $time = strtotime($NgayNhan);
-    $time1 = strtotime($NgayTra);
 
-    $sql = "insert into guaranteed(Ten_KH,Email_KH,DienThoai_KH,Ma_KH,Ten_SP,Seri_SP,MaKho_SP,MoTaLoi,NgayNhan_SP,NgayTra_SP,NhanVienSua,TinhTrang,GhiChu) value('$name', '$email', '$SDT', '$MaKH', '$TenSP','$seri','$KhoSP','$MoTaLoi',FROM_UNIXTIME($time),FROM_UNIXTIME($time1),'$TenNV','$TinhTrang','$GhiChu')";
-    $pdo->query($sql) or die("Khong them duoc");
-   /* $query = "SELECT * FROM guaranteed ORDER BY Ma_BH DESC LIMIT 1";
-    $result = $pdo->query($query) ;
-    $result = $result->fetch();*/
-    header("location:ManagerGuaranteed.php");
-}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -140,6 +114,49 @@ if (isset($_POST['btn1'])) {
                 <!-- /.panel-heading -->
                 <div class="panel-body">
                     <form class="form-horizontal" method="post" action="add.php">
+                        <?php
+                        if(isset($_POST['btn1']))
+                        {
+                            $name = $_POST['name'];
+                            $SDT = $_POST['SDT'];
+                            $email = $_POST['email'];
+                            $MaKH = $_POST['MaKH'];
+                            $TenSP = $_POST['TenSP'];
+                            $seri = $_POST['seri'];
+                            $KhoSP = $_POST['KhoSP'];
+                            $MoTaLoi = $_POST['msg'];
+                            $NgayNhan = $_POST['NgayNhan'];
+                            $NgayTra = $_POST['NgayTra'];
+                            $TenNV = $_POST['TenNV'];
+                            $TinhTrang = $_POST['TinhTrang'];
+                            $GhiChu = $_POST['GhiChu'];
+                            list($day, $month, $year) = split('[/.-]', $NgayNhan);
+                            $strd = "$year-$month-$day";
+                            $date = new DateTime($strd);
+                            $time = $date->format("Y-m-d");
+                            list($day, $month, $year) = split('[/.-]', $NgayTra);
+                            $strd = "$year-$month-$day";
+                            $date = new DateTime($strd);
+                            $time1 = $date->format("Y-m-d");
+
+                            $sql = "insert into guaranteed(Ten_KH,Email_KH,DienThoai_KH,Ma_KH,Ten_SP,Seri_SP,MaKho_SP,MoTaLoi,NgayNhan_SP,NgayTra_SP,NhanVienSua,TinhTrang,GhiChu) value('$name', '$email', '$SDT', '$MaKH', '$TenSP','$seri','$KhoSP','$MoTaLoi','$time','$time1','$TenNV','$TinhTrang','$GhiChu')";
+                            $pdo->query($sql) or die ("khong thêm dk");
+                               /* echo "<div class=\"alert alert-danger alert-error\">
+                                    <a href=\"#\" class=\"close\" data-dismiss=\"alert\">&times;</a>
+                                    <strong>Lỗi!</strong> Không thể thêm vào cơ sở dữ liệu.
+                                </div>";*/
+
+
+                            $query = "SELECT * FROM guaranteed ORDER BY Ma_BH DESC LIMIT 1";
+                            $result = $pdo->query($query) ;
+                            $result = $result->fetch();
+                            echo "<div class=\"alert alert-success alert-error\">
+                                    <a href=\"#\" class=\"close\" data-dismiss=\"alert\">&times;</a>
+                                    <strong>!</strong> Thêm thành công.
+                                    <a href='print.php?result=$result[0]' target='_blank'>In bảo hành</a>
+                                </div>";
+                        }
+                        ?>
                         <div class="form-group">
                             <label for="TenKH" class="col-md-4 control-label">Tên khách hàng</label>
                             <div class="col-md-5">

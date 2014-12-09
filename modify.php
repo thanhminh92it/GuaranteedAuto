@@ -4,13 +4,9 @@ $Ma_BH = $_REQUEST['id'];
 $sql = "Select * from guaranteed where Ma_BH = '$Ma_BH'";
 $BaoHanh = $pdo -> query($sql);
 $BaoHanh=$BaoHanh -> fetch();
-$time = strtotime($BaoHanh['NgayNhan_SP']);
-$newformat = date('d/m/Y',$time);
-$date = new DateTime($newformat);
+$date = new DateTime($BaoHanh['NgayNhan_SP']);
 $result = $date->format('d/m/Y');
-$time1 = strtotime($BaoHanh['NgayTra_SP']);
-$newformat1 = date('d/m/Y',$time1);
-$date1 = new DateTime($newformat1);
+$date1 = new DateTime($BaoHanh['NgayTra_SP']);
 $result1 = $date1->format('d/m/Y');
 ?>
 
@@ -29,10 +25,16 @@ if(isset($_POST['btnSubmit'])){
     $TenNV = $_POST['TenNV'];
     $TinhTrang = $_POST['TinhTrang'];
     $GhiChu = $_POST['GhiChu'];
-    $time = strtotime($NgayNhan);
-    $time1 = strtotime($NgayTra);
+    list($day, $month, $year) = split('[/.-]', $NgayNhan);
+    $strd = "$year-$month-$day";
+    $date2 = new DateTime($strd);
+    $time = $date2->format("Y-m-d");
+    list($day, $month, $year) = split('[/.-]', $NgayTra);
+    $strd = "$year-$month-$day";
+    $date2 = new DateTime($strd);
+    $time1 = $date2->format("Y-m-d");
     $id = $_REQUEST['id'];
-    $sql = "UPDATE guaranteed set Ten_KH='$name',Email_KH='$email',DienThoai_KH='$SDT',Ma_KH='$MaKH',Ten_SP='$TenSP',Seri_SP='$seri',MaKho_SP='$KhoSP',MoTaLoi='$MoTaLoi',NgayNhan_SP=FROM_UNIXTIME($time),NgayTra_SP=FROM_UNIXTIME($time1),NhanVienSua='$TenNV',TinhTrang='$TinhTrang',GhiChu='$GhiChu' where Ma_BH='$id'";
+    $sql = "UPDATE guaranteed set Ten_KH='$name',Email_KH='$email',DienThoai_KH='$SDT',Ma_KH='$MaKH',Ten_SP='$TenSP',Seri_SP='$seri',MaKho_SP='$KhoSP',MoTaLoi='$MoTaLoi',NgayNhan_SP='$time', NgayTra_SP='$time1',NhanVienSua='$TenNV',TinhTrang='$TinhTrang',GhiChu='$GhiChu' where Ma_BH='$id'";
     $pdo -> query($sql) or die("Không thêm được vào CSDL");
     header("location:ManagerGuaranteed.php");
 }

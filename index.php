@@ -1,6 +1,6 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <title>[Demo] Tìm Kiếm Dữ Liệu Với PHP Kết Hợp Ajax jQuery - 2CwebVN</title>
+    <title>Bảo hành thái vinh</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="author" content="2cwebvn" />
     <link href="../favicon.png" rel="icon" type="image/x-icon" >

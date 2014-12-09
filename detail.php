@@ -4,13 +4,9 @@ $Ma_BH = $_REQUEST['id'];
 $sql = "Select * from guaranteed where Ma_BH = '$Ma_BH'";
 $BaoHanh = $pdo -> query($sql);
 $BaoHanh=$BaoHanh -> fetch();
-$time = strtotime($BaoHanh['NgayNhan_SP']);
-$newformat = date('d/m/Y',$time);
-$date = new DateTime($newformat);
+$date = new DateTime($BaoHanh['NgayNhan_SP']);
 $result = $date->format('d/m/Y');
-$time1 = strtotime($BaoHanh['NgayTra_SP']);
-$newformat1 = date('d/m/Y',$time1);
-$date1 = new DateTime($newformat1);
+$date1 = new DateTime($BaoHanh['NgayTra_SP']);
 $result1 = $date1->format('d/m/Y');
 ?>
 <!DOCTYPE html>
