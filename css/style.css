@@ -118,24 +118,3 @@ color: green !important;}
 .table-chitiet tr td{
     text-align: center;
 }
-
-.table-chitiet td,.table-chitiet th{
-    border: 1px solid #ddd;
-}
-.custom-button{
-    width: 200px;
-}
-
-.gradeC{
-    text-align: center;
-}
-.table-baocao-chitiet{
-    margin-top: 25px;
-    width: 95%;
-    margin-left: 3%;
-
-}
-.table-baocao-chitiet td,.table-baocao-chitiet th{
-    border: 1px solid #ddd;
-    padding: 10px;
-}

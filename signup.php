@@ -19,7 +19,7 @@
         {
            $sql = "insert into account value('$account','$email','$pass')";
            $pdo -> query($sql) or die("Khong them dc");
-            header("location:ManagerGuaranteed.php");
+            header("location:ManagerUser.php");
         }
         else
         {

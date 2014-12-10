@@ -79,9 +79,6 @@ $(document).ready(function () {
     $('form').validate({
         rules:
         {
-            TuNgay:"required",
-            DenNgay:"required",
-            NgayBaoCao:"required",
             name:"required",
             SDT:{
                 required:true,
@@ -100,9 +97,6 @@ $(document).ready(function () {
             }
         },
         messages:{
-            TuNgay:"Bạn chưa nhập ngày",
-            DenNgay:"Bạn chưa nhập ngày",
-            NgayBaoCao:"Bạn chưa nhập ngày",
             name:{
                 required:"  Tên không được để trống"
             },
@@ -155,75 +149,5 @@ $(document).ready(function () {
 
         }
     });
-
-    $('.ngaybaocao').validate({
-        rules:
-        {
-            TuNgay:"required",
-            DenNgay:"required",
-            NgayBaoCao:"required"
-
-        },
-        messages:{
-            TuNgay:"Bạn chưa nhập ngày",
-            DenNgay:"Bạn chưa nhập ngày",
-            NgayBaoCao:"Bạn chưa nhập ngày"
-        },
-        highlight: function(element) {
-            $(element).closest('.form-group').addClass('has-error');
-        },
-        unhighlight: function(element) {
-            $(element).closest('.form-group').removeClass('has-error');
-        },
-        errorElement: 'span',
-        errorClass: 'help-block',
-        errorPlacement: function(error, element) {
-            if(element.parent('.input-group').length) {
-                error.insertAfter(element.parent());
-            } else {
-                error.insertAfter(element);
-            }
-        },
-        success: function (label) {
-            label
-                .closest('.form-group').addClass('has-success');
-
-        }
-    });
-    $('.khoangngay').validate({
-        rules:
-        {
-            TuNgay:"required",
-            DenNgay:"required",
-            NgayBaoCao:"required"
-
-        },
-        messages:{
-            TuNgay:"Bạn chưa nhập ngày",
-            DenNgay:"Bạn chưa nhập ngày",
-            NgayBaoCao:"Bạn chưa nhập ngày"
-        },
-        highlight: function(element) {
-            $(element).closest('.form-group').addClass('has-error');
-        },
-        unhighlight: function(element) {
-            $(element).closest('.form-group').removeClass('has-error');
-        },
-        errorElement: 'span',
-        errorClass: 'help-block',
-        errorPlacement: function(error, element) {
-            if(element.parent('.input-group').length) {
-                error.insertAfter(element.parent());
-            } else {
-                error.insertAfter(element);
-            }
-        },
-        success: function (label) {
-            label
-                .closest('.form-group').addClass('has-success');
-
-        }
-    });
-
 
 });
