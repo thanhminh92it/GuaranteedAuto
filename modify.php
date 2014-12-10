@@ -90,7 +90,7 @@ if(isset($_POST['btnSubmit'])){
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="index.html">Thái Vinh Computer</a>
+        <a class="navbar-brand" href="#">Thái Vinh Computer</a>
     </div>
     <!-- /.navbar-header -->
 

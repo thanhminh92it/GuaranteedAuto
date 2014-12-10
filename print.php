@@ -21,8 +21,8 @@
 
     <table class="table-baocao" style="width: 100%">
         <tr>
-            <td rowspan="7" class="col-sm-1 pull-right"><img src="img/thaivinh.png"></td>
-            <td class="col-sm-3 title-banner" style="color: #3e8f3e;font-size: 18px;">Công ty CP Thương mại máy tính Thái Vinh</td>
+            <td rowspan="7" class="col-sm-1" style="width: 30%;text-align: center"><img src="img/thaivinh.png"></td>
+            <td class="col-sm-3 title-banner" style="color: #3e8f3e;font-size: 18px;text-align: center;width: 50%">Công ty CP Thương mại máy tính Thái Vinh</td>
         </tr>
         <tr><th>TRUNG TÂM BẢO HÀNH</th></tr>
         <tr><td>Số 30 Khương Thượng,Đống Đa,Hà Nội</td></tr>
@@ -35,25 +35,25 @@
             <td class="title-nhapkho">Phiếu nhập kho</td>
         </tr>
     </table><br/><br/>
-    <table class="table-thongtin" style="width: 80%">
+    <table class="table-thongtin" style="width: 70%; margin-left: 7%">
         <tr>
-            <th style="width: 60%"><p>Tên Khách: <?php echo $ketqua['Ten_KH'] ?></p></th>
-            <th style="width: 40%"><p>Số phiếu</p></th>
+            <th style="width: 50%"><p>Tên Khách: <?php echo $ketqua['Ten_KH'] ?></p></th>
+            <th style="width: 50%;text-align: left"><p>Số phiếu</p></th>
         </tr>
         <tr>
-            <th style="width: 60%"><p>Địa chỉ: </p></th>
-            <th style="width: 40%"><p>Ngày xuất bán</p></th>
+            <th style="width: 50%"><p>Địa chỉ: <?php echo $ketqua['Dic'] ?></p></th>
+            <th style="width: 50%;text-align: left"><p>Ngày xuất bán</p></th>
         </tr>
         <tr>
-            <th style="width: 60%"><p>Điện thoại: <?php echo $ketqua['DienThoai_KH'] ?></p></th>
-            <th style="width: 40%"><p>Số phiếu bán</p></th>
+            <th style="width: 50%"><p>Điện thoại: <?php echo $ketqua['DienThoai_KH'] ?></p></th>
+            <th style="width: 50%;text-align: left"><p>Số phiếu bán</p></th>
         </tr>
         <tr>
             <th style="width: 50%"><p>Diễn giải</p></th>
-            <th style="width: 50%"><p>Ngày nhập kho: <?php echo $newformat ?></p></th>
+            <th style="width: 50%;text-align: left"><p>Ngày nhập kho: <?php echo $newformat ?></p></th>
         </tr>
     </table>
-    <table class="table table-chitiet" style="width: 100%" border="thin">
+    <table class="table table-chitiet" style="width: 80%; margin-left: 10%;margin-top: 20px" border="thin">
         <tr>
             <th style="width: 10%">STT</th>
             <th style="width: 30%">Model</th>

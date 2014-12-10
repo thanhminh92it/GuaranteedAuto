@@ -144,6 +144,7 @@ include 'database.php';
 </tbody>
 </table>
 </div>
+    <div style="margin-left: 5%"><a href="Report.php"><button class="btn btn-success">In báo cáo</button></a></div>
 </div>
 </div>
 </div>

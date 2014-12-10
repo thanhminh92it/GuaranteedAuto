@@ -56,7 +56,7 @@ if ($_SESSION['username'] == null) header("location:login.php");
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="index.html">Thái Vinh Computer</a>
+        <a class="navbar-brand" href="#">Thái Vinh Computer</a>
     </div>
     <!-- /.navbar-header -->
 
