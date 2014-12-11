@@ -90,7 +90,7 @@ if ($_SESSION['username'] == null) header("location:login.php");
 <div id="page-wrapper">
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header">Danh sách bảo hành</h1>
+            <h1 class="page-header">Thêm mới bảo hành</h1>
 
         </div>
 
@@ -103,7 +103,7 @@ if ($_SESSION['username'] == null) header("location:login.php");
                 <!--<p>Bảng danh sách bảo hành</p>
                 <div class="pull-right"></div>-->
                 <div class="panel-heading panel-mytitle">
-                    <span class="glyphicon glyphicon-list"></span> Danh sách bảo hành
+                    <span class="glyphicon glyphicon-list"></span> Thêm mới bảo hành
                     <div class="pull-right">
                         <div class="btn-group">
                             <a href="/GuaranteedAuto/add.php" title="Thêm mới" class="btn btn-primary btn-xs"><span

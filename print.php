@@ -6,6 +6,8 @@
     $ketqua = $ketqua -> fetch();
     $NgayNhan = strtotime($ketqua['NgayNhan_SP']);
     $newformat = date('d/m/Y',$NgayNhan);
+    $NgayTra = strtotime($ketqua['NgayTra_SP']);
+    $newformat1 = date('d/m/Y',$NgayTra);
 ?>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -38,19 +40,11 @@
     <table class="table-thongtin" style="width: 70%; margin-left: 7%">
         <tr>
             <th style="width: 50%"><p>Tên Khách: <?php echo $ketqua['Ten_KH'] ?></p></th>
-            <th style="width: 50%;text-align: left"><p>Số phiếu</p></th>
-        </tr>
-        <tr>
-            <th style="width: 50%"><p>Địa chỉ: <?php echo $ketqua['Dic'] ?></p></th>
-            <th style="width: 50%;text-align: left"><p>Ngày xuất bán</p></th>
-        </tr>
-        <tr>
             <th style="width: 50%"><p>Điện thoại: <?php echo $ketqua['DienThoai_KH'] ?></p></th>
-            <th style="width: 50%;text-align: left"><p>Số phiếu bán</p></th>
         </tr>
         <tr>
-            <th style="width: 50%"><p>Diễn giải</p></th>
             <th style="width: 50%;text-align: left"><p>Ngày nhập kho: <?php echo $newformat ?></p></th>
+            <th style="width: 50%;text-align: left"><p>Ngày trả : <?php echo $newformat1 ?></p></th>
         </tr>
     </table>
     <table class="table table-chitiet" style="width: 80%; margin-left: 10%;margin-top: 20px" border="thin">
