@@ -139,3 +139,17 @@ color: green !important;}
     border: 1px solid #ddd;
     padding: 10px;
 }
+.customerTT
+{
+    border: 1px solid #d5d5d5;
+    box-shadow: 5px 5px 5px #888;
+    padding: 30px 100px 30px 100px;
+    margin-bottom: 20px;
+}
+.customerCMT
+{
+    border: 1px solid #d5d5d5;
+    box-shadow: 5px 5px 5px #888;
+    padding: 30px 30px 30px 30px;
+    margin-bottom: 20px;
+}
